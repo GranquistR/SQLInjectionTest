@@ -4,7 +4,7 @@ using SQLInjectionTest.Services;
 
 namespace SQLInjectionTest.Pages
 {
-    public class CarsUnsecureModel : PageModel
+    public class CarsModel : PageModel
     {
         public List<Car> Cars { get; private set; } = new List<Car>();
         public string RequestedName { get; set; }

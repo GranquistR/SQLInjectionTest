@@ -1,5 +1,5 @@
 ﻿@page
-@model SQLInjectionTest.Pages.CarsUnsecureModel
+@model SQLInjectionTest.Pages.CarsModel
 @{
     ViewData["Title"] = "Search Cars";
 }
@@ -8,7 +8,7 @@
 
 <form method="post">
     <div class="form-group">
-        <label for="searchTerm">Car Name</label>
+        <label for="searchTerm">Name</label>
         <input type="text" class="form-control mb-1" id="requestedName" name="requestedName" value="@Model.RequestedName" />
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
