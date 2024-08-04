@@ -1,0 +1,50 @@
+﻿@page
+@model SQLInjectionTest.Pages.CarsUnsecureModel
+@{
+    ViewData["Title"] = "Search Cars";
+}
+
+<h2>Search Cars</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="searchTerm">Car Name</label>
+        <input type="text" class="form-control mb-1" id="requestedName" name="requestedName" value="@Model.RequestedName" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
+@if (!Model.Error)
+{
+    if (Model.Cars != null && Model.Cars.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var car in Model.Cars)
+                {
+                    <tr>
+                        <td>@car.Make</td>
+                        <td>@car.Model</td>
+                        <td>@car.Color</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No cars found.</p>
+    }
+}
+else
+{
+    <p>Server Error! Try again later.</p>
+}

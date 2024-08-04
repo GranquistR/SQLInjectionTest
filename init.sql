@@ -16,7 +16,8 @@ IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Users')
 BEGIN
     CREATE TABLE Users (
         Id INT PRIMARY KEY IDENTITY(1,1),
-        Name NVARCHAR(100) NOT NULL
+        Name NVARCHAR(100) NOT NULL,
+        Password NVARCHAR(100) NOT NULL
     );
 END
 GO
@@ -37,12 +38,12 @@ GO
 -- Insert data into Users table if it is empty
 IF NOT EXISTS (SELECT * FROM Users)
 BEGIN
-    INSERT INTO Users (Name) VALUES 
-    ('John Doe'), 
-    ('Jane Smith'),
-    ('Alice Johnson'),
-    ('Bob Brown'),
-    ('Charlie Davis');
+    INSERT INTO Users (Name, Password) VALUES 
+    ('Bob', 'Password123'), 
+    ('Tim', '123Hello'),
+    ('Jake', 'SecretKey'),
+    ('John', 'Time2Go#'),
+    ('Russell', 'qy34y*!@#$');
 END
 GO
 
